@@ -4,7 +4,7 @@
  * Author: Val Liu (valuis0429@gmail.com)
  *
  * -----
- * Last Modified: 2023-09-23 11:50:00
+ * Last Modified: 2023-11-06 08:01:35
  * Modified By: Val Liu
  * -----
  */
@@ -17,7 +17,7 @@ import {
     IUpdateUserDto,
     UserService,
 } from "./user.service";
-import { TypedBody, TypedQuery, TypedRoute } from "@nestia/core";
+import { TypedBody, TypedRoute } from "@nestia/core";
 
 @Controller("user")
 export class UserController {
@@ -28,18 +28,18 @@ export class UserController {
         return this.userService.create(createUserDto);
     }
 
-    @TypedRoute.Get()
-    read(@TypedQuery() readUserDto: IReadUserDto) {
+    @TypedRoute.Patch()
+    read(@TypedBody() readUserDto: IReadUserDto) {
         return this.userService.read(readUserDto);
     }
 
-    @TypedRoute.Patch()
+    @TypedRoute.Put()
     update(@TypedBody() updateUserDto: IUpdateUserDto) {
         return this.userService.update(updateUserDto);
     }
 
     @TypedRoute.Delete()
-    delete(@TypedQuery() deleteUserDto: IDeleteUserDto) {
+    delete(@TypedBody() deleteUserDto: IDeleteUserDto) {
         return this.userService.delete(deleteUserDto);
     }
 }

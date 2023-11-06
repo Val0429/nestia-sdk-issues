@@ -4,27 +4,39 @@
  * Author: Val Liu (valuis0429@gmail.com)
  *
  * -----
- * Last Modified: 2023-09-27 12:25:18
+ * Last Modified: 2023-11-06 07:53:57
  * Modified By: Val Liu
  * -----
  */
 
 import { Injectable, Optional } from "@nestjs/common";
 import {
-    BeEntity,
     CreateDto,
     DeleteDto,
+    GeneralOutput,
+    PrettifyCreateDto,
+    PrettifyDeleteDto,
+    PrettifyReadDto,
+    PrettifyUpdateDto,
     ReadDto,
     UpdateDto,
 } from "core/types/base-entity";
-import { IUser } from "./entities/user.entity";
-// import { PrismaService } from "@app/prisma";
+import { Prisma } from "@prisma/client";
 
-export type IUserEntity = BeEntity<IUser>;
-export type ICreateUserDto = CreateDto<IUser>;
-export type IReadUserDto = ReadDto<IUser>;
-export type IUpdateUserDto = UpdateDto<IUser>;
-export type IDeleteUserDto = DeleteDto<IUser>;
+export type IUser = Output;
+
+export type ICreateUserDto = CreateDto<Delegate>;
+type IPrettifyCreateUserDto = PrettifyCreateDto<ICreateUserDto>;
+export type IReadUserDto = ReadDto<Delegate>;
+type IPrettifyReadUserDto = PrettifyReadDto<IReadUserDto>;
+export type IUpdateUserDto = UpdateDto<Delegate>;
+type IPrettifyUpdateUserDto = PrettifyUpdateDto<IUpdateUserDto>;
+export type IDeleteUserDto = DeleteDto<Delegate>;
+type IPrettifyDeleteUserDto = PrettifyDeleteDto<IDeleteUserDto>;
+
+/// private helper: Prisma payload definition
+type Delegate = Prisma.UserDelegate;
+type Output = GeneralOutput<Delegate>;
 
 @Injectable()
 export class UserService {

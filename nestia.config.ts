@@ -4,7 +4,7 @@
  * Author: Val Liu <valuis0429@gmail.com>
  *
  * -----
- * Last Modified: 2023-09-23 01:11:33
+ * Last Modified: 2023-11-06 07:33:31
  * Modified By: Val Liu
  * -----
  */
@@ -38,7 +38,7 @@ export const NESTIA_CONFIG: INestiaConfig = {
     /**
      * List of files or directories containing the NestJS controller classes.
      */
-    input: ["libs", "srcs"],
+    input: ["libs/**/*.controller.ts", "src/**/*.controller.ts"],
 
     /**
      * Output directory that SDK would be placed in.
@@ -57,7 +57,7 @@ export const NESTIA_CONFIG: INestiaConfig = {
      * and runs `npm publish` command, then you can share SDK library with
      * other client (frontend) developers.
      */
-    // distribute: "packages/api",
+    distribute: "packages/api",
 
     /**
      * Allow simulation mode.

@@ -4,15 +4,15 @@
  * Author: Val Liu <valuis0429@gmail.com>
  *
  * -----
- * Last Modified: 2023-09-27 09:09:05
+ * Last Modified: 2023-11-06 07:32:34
  * Modified By: Val Liu
  * -----
  */
 
-import { DynamicModule, Global, Module } from "@nestjs/common";
+import { Global, Module } from "@nestjs/common";
 import { PrismaService } from "./prisma.service";
 
-export const PRISMA_INJECTION_TOKEN = "PrismaService";
+export const PRISMA_INJECTION_TOKEN = Symbol("PrismaService");
 
 @Global()
 @Module({
