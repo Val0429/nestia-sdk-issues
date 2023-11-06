@@ -9,7 +9,7 @@ import type { IConnection, Primitive } from "@nestia/fetcher";
 import { PlainFetcher } from "@nestia/fetcher/lib/PlainFetcher";
 
 import type { __type } from "../../../../core/types/base-entity";
-import type { ICreateUserDto } from "../../../../libs/user/src/user.service";
+import type { ICreateUserDto, IDeleteUserDto, IUpdateUserDto } from "../../../../libs/user/src/user.service";
 
 /**
  * @controller UserController.create
@@ -130,7 +130,7 @@ export async function update(
     );
 }
 export namespace update {
-    export type Input = Primitive<__type>;
+    export type Input = Primitive<IUpdateUserDto>;
     export type Output = Primitive<string>;
 
     export const METADATA = {
@@ -177,7 +177,7 @@ export async function $delete(
     );
 }
 export namespace $delete {
-    export type Input = Primitive<__type>;
+    export type Input = Primitive<IDeleteUserDto>;
     export type Output = Primitive<string>;
 
     export const METADATA = {

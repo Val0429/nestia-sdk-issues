@@ -4,7 +4,7 @@
  * Author: Val Liu <valuis0429@gmail.com>
  *
  * -----
- * Last Modified: 2023-11-06 08:17:36
+ * Last Modified: 2023-11-06 10:50:31
  * Modified By: Val Liu
  * -----
  */
@@ -29,12 +29,14 @@ export type CreateDto<T extends GeneralDelegateMeta> = OmitDataFields<
 export type ReadDto<T extends GeneralDelegateMeta> = IInputPaging<
     Parameters<T["findMany"]>[0]
 >;
-export type UpdateDto<T extends GeneralDelegateMeta> = Parameters<
-    T["update"]
->[0];
-export type DeleteDto<T extends GeneralDelegateMeta> = Parameters<
-    T["delete"]
->[0];
+export type UpdateDto<T extends GeneralDelegateMeta> = OmitDataFields<
+    Parameters<T["update"]>[0],
+    keyof IBaseEntity
+>;
+export type DeleteDto<T extends GeneralDelegateMeta> = OmitDataFields<
+    Parameters<T["delete"]>[0],
+    keyof IBaseEntity
+>;
 
 /// Prettify
 export type Prettify<T> = {
