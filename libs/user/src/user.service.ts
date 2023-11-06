@@ -4,7 +4,7 @@
  * Author: Val Liu (valuis0429@gmail.com)
  *
  * -----
- * Last Modified: 2023-11-06 10:48:56
+ * Last Modified: 2023-11-06 11:49:22
  * Modified By: Val Liu
  * -----
  */
@@ -44,19 +44,19 @@ export class UserService {
     //     console.log("is it really here?", this.prisma);
     // }
 
-    create(createUserDto: ICreateUserDto) {
+    create(createUserDto: ICreateUserDto): string {
         return "create user!";
     }
 
-    read(readUserDto: IReadUserDto) {
+    read(readUserDto: IReadUserDto): string {
         return "find users!";
     }
 
-    update(updateUserDto: IUpdateUserDto) {
+    update(updateUserDto: IUpdateUserDto): string {
         return "update user!";
     }
 
-    delete(deleteUserDto: IDeleteUserDto) {
+    delete(deleteUserDto: IDeleteUserDto): string {
         return "delete user!";
     }
 }

@@ -4,7 +4,7 @@
  * Author: Val Liu (valuis0429@gmail.com)
  *
  * -----
- * Last Modified: 2023-11-06 08:01:35
+ * Last Modified: 2023-11-06 11:49:44
  * Modified By: Val Liu
  * -----
  */
@@ -24,22 +24,22 @@ export class UserController {
     constructor(private readonly userService: UserService) {}
 
     @TypedRoute.Post()
-    create(@TypedBody() createUserDto: ICreateUserDto) {
+    create(@TypedBody() createUserDto: ICreateUserDto): string {
         return this.userService.create(createUserDto);
     }
 
     @TypedRoute.Patch()
-    read(@TypedBody() readUserDto: IReadUserDto) {
+    read(@TypedBody() readUserDto: IReadUserDto): string {
         return this.userService.read(readUserDto);
     }
 
     @TypedRoute.Put()
-    update(@TypedBody() updateUserDto: IUpdateUserDto) {
+    update(@TypedBody() updateUserDto: IUpdateUserDto): string {
         return this.userService.update(updateUserDto);
     }
 
     @TypedRoute.Delete()
-    delete(@TypedBody() deleteUserDto: IDeleteUserDto) {
+    delete(@TypedBody() deleteUserDto: IDeleteUserDto): string {
         return this.userService.delete(deleteUserDto);
     }
 }
