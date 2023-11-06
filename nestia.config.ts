@@ -4,7 +4,7 @@
  * Author: Val Liu <valuis0429@gmail.com>
  *
  * -----
- * Last Modified: 2023-11-06 07:33:31
+ * Last Modified: 2023-11-06 12:50:18
  * Modified By: Val Liu
  * -----
  */
@@ -73,5 +73,7 @@ export const NESTIA_CONFIG: INestiaConfig = {
      * @default false
      */
     // simulate: true,
+
+    clone: true,
 };
 export default NESTIA_CONFIG;
